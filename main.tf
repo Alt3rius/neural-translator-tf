@@ -1,7 +1,5 @@
-# Set the variable value in *.tfvars file or using -var="civo_token=..." CLI flag
 variable "do_token" {}
 
-# Specify required provider as maintained by civo
 terraform {
   required_providers {
     digitalocean = {
@@ -12,12 +10,10 @@ terraform {
 }
 
 
-# Configure the Civo Provider
 provider "digitalocean" {
   token = var.do_token
 }
 
-# Query xsmall instance size
 data "digitalocean_sizes" "medium" {
   filter {
     key    = "vcpus"
